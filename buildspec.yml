@@ -13,4 +13,4 @@ phases:
   post_build:
     commands:
       - ls -al
-      - aws s3 cp --recursive / s3://https://continuous-deploy-front.s3.ap-northeast-2.amazonaws.com
+      - aws s3 cp build/ s3://continuous-deploy-front
