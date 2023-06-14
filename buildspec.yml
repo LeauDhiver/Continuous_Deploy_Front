@@ -10,8 +10,4 @@ phases:
   post_build:
     commands:
       - ls -al
-      - aws s3 cp build/ s3://continuous-deploy-front
-
-artifacts:
-  files:
-    - '**/*'
+      - aws s3 cp build/ s3://continuous-deploy-front/
