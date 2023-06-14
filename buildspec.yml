@@ -1,14 +1,16 @@
 version: 0.2
 
 phases:
-  pre_build:
+  install:
     commands:
       - npm install
+  pre_build:
+    commands:
+      - echo pre-build
   build:
     commands:
       - npm run build
-
-artifacts:
-  files:
-    - '**/*'
-  base-directory: ./build
+  post_build:
+    commands:
+      - ls -al
+      - aws s3 cp --recursive / s3://https://continuous-deploy-front.s3.ap-northeast-2.amazonaws.com
